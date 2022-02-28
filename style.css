@@ -26,13 +26,6 @@ h1 {
   font-size: 44px;
   margin-bottom: 10px;
 }
-/* 
-h1 button {
-  position: absolute;
-  right: 0;
-  transform: translate(120%, -50%);
-  z-index: 2;
-} */
 
 .btn {
   cursor: pointer;
@@ -54,6 +47,8 @@ h1 button {
 .btn-ghost {
   border: 0;
   background-color: transparent;
+  margin-left: 10px;
+  font-family: "Fredoka", sans-serif;
 }
 
 .clear {
@@ -63,23 +58,31 @@ h1 button {
 }
 
 .cards {
-  perspective: 1000px;
+  perspective: 1000px; /*Give 3D look*/
   position: relative;
   height: 300px;
   width: 500px;
   max-width: 100%;
+  margin-top: 30px;
 }
 
 .card {
   position: absolute;
   opacity: 0;
-  font-size: 1.5em;
+  font-size: 20px;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   transform: translateX(50%) rotateY(-10deg);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.3s ease, opacity 0.1s ease;
+}
+
+.card.left {
+  transform: translateX(-50%) rotateY(10deg);
+}
+.card.right {
+  transform: translateX(50%) rotateY(10deg);
 }
 
 .card.active {
@@ -87,10 +90,6 @@ h1 button {
   opacity: 1;
   z-index: 10;
   transform: translateX(0) rotateY(0deg);
-}
-
-.card.left {
-  transform: translateX(-50%) rotateY(10deg);
 }
 
 .inner-card {
@@ -103,7 +102,7 @@ h1 button {
   transition: transform 0.4s ease;
 }
 
-.card.show-answer .inner-card {
+.card.show-definition .inner-card {
   transform: rotateX(180deg);
 }
 
@@ -119,6 +118,7 @@ h1 button {
   height: 100%;
   width: 100%;
   background: #fff;
+  font-size: 24px;
 }
 
 .inner-card-front {
@@ -133,7 +133,7 @@ h1 button {
 .inner-card-front::after,
 .inner-card-back::after {
   content: "\f021  Flip";
-  font-family: "Font Awesome 5 Free", Lato, sans-serif;
+  font-family: "Font Awesome 5 Free", Fredoka, sans-serif;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -152,16 +152,19 @@ h1 button {
   background-color: transparent;
   cursor: pointer;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .navigation p {
-  margin: 0 25px;
+  margin: 10px 25px;
+  font-size: 20px;
+  font-family: "Fredoka", sans-serif;
 }
 
 .add-container {
   opacity: 0;
   z-index: -1;
-  background-color: #f0f0f0;
+  background-color: var(--primary-color);
   border-top: 2px solid #eee;
   display: flex;
   flex-direction: column;
@@ -187,12 +190,15 @@ h1 button {
 .form-group label {
   display: block;
   margin: 20px 0 10px;
+  font-size: 20px;
+  font-family: "Fredoka", sans-serif;
 }
 
 .form-group textarea {
   border: 1px solid #aaa;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 20px;
+  font-family: "Fredoka", sans-serif;
   padding: 12px;
   min-width: 500px;
   max-width: 100%;
